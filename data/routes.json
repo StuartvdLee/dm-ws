@@ -1,0 +1,5 @@
+﻿[
+  { "id": "R-1", "driver": "Darryl Philbin",  "area": "North", "packages": ["PKG-1042"] },
+  { "id": "R-2", "driver": "Roy Anderson",    "area": "East",  "packages": ["PKG-1037", "PKG-1060"] },
+  { "id": "R-3", "driver": "Lonnie Collins",  "area": "West",  "packages": ["PKG-1055"] }
+]
