@@ -1,6 +1,6 @@
 [
   {
-    "id": "PKG-1037",
+    "id": "DM-1037",
     "orderId": "1037",
     "status": "in_transit",
     "route": "R-2",
@@ -9,7 +9,7 @@
     "label": "DM-1037 frgile  rte R-2"
   },
   {
-    "id": "PKG-1042",
+    "id": "DM-1042",
     "orderId": "1042",
     "status": "delivered",
     "route": "R-1",
@@ -18,7 +18,7 @@
     "label": "DM-1042 rte R-1"
   },
   {
-    "id": "PKG-1055",
+    "id": "DM-1055",
     "orderId": "1055",
     "status": "pending",
     "route": "R-3",
@@ -27,7 +27,7 @@
     "label": "DM-1055 rte R-3"
   },
   {
-    "id": "PKG-1060",
+    "id": "DM-1060",
     "orderId": "1060",
     "status": "exception",
     "route": "R-2",
