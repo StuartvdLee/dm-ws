@@ -48,7 +48,7 @@ from mcp.client.stdio import stdio_client
 load_dotenv()
 
 # -- MCP server ---------------------------------------------------------------
-_ROOT = Path(__file__).parent.parent  # workshop/
+_ROOT = Path(__file__).parent
 _SERVER_FILE = _ROOT / "mcp_server.py"
 
 if _SERVER_FILE.exists():
@@ -193,7 +193,7 @@ async def cmd_check_condition(
     decided_by: str,
     note: str,
 ) -> None:
-    package_id   = order_id if order_id.upper().startswith("DM-") else f"DM-{order_id}"
+    package_id   = order_id
     package_data = await fetch_package(package_id)
 
     if package_data is None:

@@ -88,7 +88,7 @@ def investigate_delayed_package(orderId: str) -> str:
 def package_status_policy() -> str:
     """The Dunder Mifflin package handling and status policy."""
     # TODO: load data/policy.md from the workshop data folder and return its contents.
-    # Hint: Path(__file__).parent.parent / "data" / "policy.md"
+    # Hint: Path(__file__).parent / "data" / "policy.md"
     return "TODO: load from data/policy.md"
 
 
