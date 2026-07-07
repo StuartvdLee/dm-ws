@@ -18,7 +18,7 @@ Escalation rules to implement:
   Rule 2 — High-risk condition (damaged, missing label, wrong address)
   Rule 3 — Customer-impacting or irreversible proposed action
 
-Follow the lab steps in docs/segments/09-human-in-the-loop-and-condition-checker.md.
+Follow the lab steps in docs/segments/10-human-in-the-loop-and-condition-checker.md.
 
 Run:
     python starter/09-1-hitl-agent.py --check-condition --order DM-1037

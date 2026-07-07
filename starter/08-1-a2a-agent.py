@@ -9,7 +9,7 @@ The Part 7 connected agent is complete below. Your tasks are:
   - TODO (step 5) Implement PackageLabelParser.run and RegionalManagerAgent.handle_label
   - TODO (step 6) Run --handoff --label "???" --show-handoff and verify failure behavior
 
-Follow the lab steps in docs/segments/08-native-tools-and-a2a-handoff.md.
+Follow the lab steps in docs/segments/08-native-tools.md (steps 1-3) and docs/segments/09-a2a-handoff.md (steps 1-4).
 
 Run:
     python starter/08-1-a2a-agent.py --show-tools
