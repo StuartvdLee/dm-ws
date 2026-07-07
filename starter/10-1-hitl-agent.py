@@ -1,15 +1,19 @@
 """Part 10 — Human-in-the-loop & condition checker (starter).
 
-The A2A handoff from Part 9 is complete below. Your tasks are:
+The A2A handoff from Part 9 is complete below. This workshop is about agentic behaviour,
+not writing Python from scratch, so the lab doc gives you a copy-paste snippet for every
+TODO below. Open the doc and paste each snippet over the matching stub, top to bottom:
 
-  TODO (step 2) Implement fetch_package to fetch live data via the MCP server
-  TODO (step 2) Implement suggest_condition to return one of VALID_CONDITIONS + confidence
-  TODO (step 2) Implement proposed_action_for to map condition -> action string
-  TODO (step 3) Confirm VALID_CONDITIONS covers all required categories
-  TODO (step 4) Implement escalation_reason with the three rules
-  TODO (step 5) Wire escalation_reason and the confirmation gate in cmd_check_condition
-  TODO (step 6) Implement build_review_payload
-  TODO (step 7) Implement record_decision and run both approve and correct paths
+    docs/segments/10-human-in-the-loop-and-condition-checker.md
+
+  TODO (step 2) Paste fetch_package        — fetch live data via the MCP server
+  TODO (step 2) Paste suggest_condition    — return one of VALID_CONDITIONS + confidence
+  TODO (step 2) Paste proposed_action_for  — map condition -> action string
+  TODO (step 3) Confirm VALID_CONDITIONS covers all required categories (no edit needed)
+  TODO (step 4) Paste escalation_reason    — the three escalation rules
+  TODO (step 5) Paste the confirmation-gate block into cmd_check_condition
+  TODO (step 6) Paste build_review_payload — what the reviewer needs to decide
+  TODO (step 7) Paste record_decision      — the audit artifact, then run both paths
 
 Condition categories: OK, damaged, unclear, missing label, wrong address, needs inspection
 
@@ -17,8 +21,6 @@ Escalation rules to implement:
   Rule 1 — Confidence below 0.85
   Rule 2 — High-risk condition (damaged, missing label, wrong address)
   Rule 3 — Customer-impacting or irreversible proposed action
-
-Follow the lab steps in docs/segments/10-human-in-the-loop-and-condition-checker.md.
 
 Run:
     python starter/10-1-hitl-agent.py --check-condition --order DM-1037
@@ -206,10 +208,12 @@ async def cmd_check_condition(
         f"(confidence {confidence:.2f}), not confirmed"
     )
 
-    # TODO (step 5): call escalation_reason; if it fires and propose_action is True,
-    # print the "Awaiting human confirmation" message and the review payload.
-    # If it does not fire and propose_action is True, print the safe-to-proceed message.
-    # If decide is set (step 7), call record_decision and print the audit artifact.
+    # ── TODO (step 5): paste the confirmation-gate block here ────────────────
+    # Replace this comment with the step 5 snippet from the lab doc. It computes
+    # `esc = escalation_reason(...)`, then:
+    #   - pauses and prints the review payload when a rule fires (--propose-action)
+    #   - prints "safe to proceed" when no rule fires
+    #   - records and prints the audit artifact when --decide is set (step 7)
 
 
 if __name__ == "__main__":
