@@ -1,23 +1,20 @@
 """Part 9 — A2A handoff (starter).
 
 The Part 8 native-tools agent is complete below (parse_label is implemented and
-registered). Your tasks are:
-  - TODO (step 1) Write the explicit handoff contract (input, artifact, failure) as a comment
-  - TODO (step 2) Implement PackageLabelParser.run (call parse_label and return json.loads result)
-  - TODO (step 2) Implement RegionalManagerAgent.handle_label:
-      - call self._parser.run(raw_label)
-      - if show_handoff: print data sent and artifact received
-      - print "RegionalManagerAgent -> PackageLabelParser -> {artifact}"
-      - on error: print a hold/re-label decision
-      - on success: print a route/handle action based on fragile flag
+registered). You only add the A2A handoff — no big chunks of Python to invent.
+Each TODO has a ready-to-paste snippet in the lab steps:
 
-Follow the lab steps in docs/segments/09-a2a-handoff.md.
+  - TODO (step 2) Write the explicit handoff contract (input, artifact, failure) as a comment
+  - TODO (step 3) Implement PackageLabelParser.run (call parse_label, return json.loads result)
+  - TODO (step 4) Implement RegionalManagerAgent.handle_label (delegate, then decide)
 
-Run:
-    python starter/09-1-a2a-agent.py --show-tools
-    python starter/09-1-a2a-agent.py --handoff --label "DM-1037 frgile rte R-2"
-    python starter/09-1-a2a-agent.py --handoff --label "???" --show-handoff
-    python starter/09-1-a2a-agent.py --order DM-1037 --show-steps
+Follow the lab steps in docs/segments/09-a2a-handoff.md — paste each snippet where its TODO sits.
+
+Run (after you copy this file to package_label_parser_agent.py):
+    python package_label_parser_agent.py --show-tools
+    python package_label_parser_agent.py --handoff --label "DM-1037 frgile rte R-2"
+    python package_label_parser_agent.py --handoff --label "???" --show-handoff
+    python package_label_parser_agent.py --order DM-1037 --show-steps
 
 Compare with the completed version at baseline/09-1-a2a-agent.py.
 """
@@ -114,7 +111,7 @@ def parse_label(raw_label: str) -> str:
     })
 
 
-# OpenAI function-tool descriptor — update the description once parse_label works.
+# OpenAI function-tool descriptor for the already-complete parse_label native tool.
 PARSE_LABEL_TOOL: dict[str, Any] = {
     "type": "function",
     "function": {
@@ -137,10 +134,10 @@ PARSE_LABEL_TOOL: dict[str, Any] = {
 }
 
 
-# ── TODO (steps 1-2): A2A handoff ───────────────────────────────────────────
+# ── TODO (steps 2-4): A2A handoff ───────────────────────────────────────────
 #
-# TODO (step 1): Write the explicit handoff contract here before implementing
-# the classes:
+# TODO (step 2): Write the explicit handoff contract here before implementing
+# the classes. Paste the contract snippet from lab step 2 over these lines:
 #
 #   Handoff contract: RegionalManagerAgent -> PackageLabelParser
 #   Input data   : ???
@@ -151,31 +148,33 @@ PARSE_LABEL_TOOL: dict[str, Any] = {
 class PackageLabelParser:
     """Specialist agent: parses a label and returns a structured artifact.
 
-    TODO (step 5): implement run() to call parse_label and return the parsed dict.
+    TODO (step 3): implement run() to call parse_label and return the parsed dict.
+    Paste the one-line snippet from lab step 3.
     """
 
     def run(self, raw_label: str) -> dict[str, Any]:
-        # TODO: call parse_label(raw_label) and return json.loads of the result
+        # TODO (step 3): return json.loads(parse_label(raw_label))
         return {"error": "not implemented", "rawLabel": raw_label}
 
 
 class RegionalManagerAgent:
     """Coordinates operational decisions; delegates label parsing to PackageLabelParser.
 
-    TODO (step 5): implement handle_label to:
+    TODO (step 4): implement handle_label to:
       - call self._parser.run(raw_label)
       - if show_handoff: print data sent and artifact received
       - print "RegionalManagerAgent -> PackageLabelParser -> {artifact}"
       - on error: print a hold/re-label decision
       - on success: print a route/handle action based on fragile flag
+    Paste the snippet from lab step 4.
     """
 
     def __init__(self) -> None:
         self._parser = PackageLabelParser()
 
     def handle_label(self, raw_label: str, show_handoff: bool = False) -> None:
-        # TODO: implement
-        print("TODO: implement handle_label — see step 5")
+        # TODO (step 4): implement — see lab step 4
+        print("TODO: implement handle_label — see lab step 4")
 
 
 # ── Connected agent (Part 7 complete) + native parse_label ───────────────────
