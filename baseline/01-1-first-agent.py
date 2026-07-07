@@ -30,7 +30,7 @@ client = AzureOpenAI(
     azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
     api_version="2024-05-01-preview",
 )
-MODEL = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
+MODEL = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-5.5")
 
 SYSTEM = f"""You are the Dunder Mifflin package manager assistant.
 You help warehouse staff and managers look up package status, routes, and conditions.

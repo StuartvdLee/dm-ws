@@ -58,7 +58,7 @@ client = AzureOpenAI(
     azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
     api_version="2024-05-01-preview",
 )
-MODEL = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
+MODEL = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-5.5")
 
 # TODO (step 2): Replace this placeholder with a real INSTRUCTIONS string that defines:
 #   - Role      : who the agent is and what it helps with

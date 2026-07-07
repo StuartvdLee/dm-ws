@@ -43,3 +43,43 @@ Each part that needs a starting template has a file in `starter/` to begin from.
 
 Copy the baseline file to the `workshop/` root (or run it directly from `baseline/`) and
 continue from there. Starter files include TODO comments marking exactly what to implement.
+
+## Troubleshooting
+
+### ARM64 Windows — `cryptography` wheel build failure
+
+`mcp[cli]` depends on `cryptography`, which on ARM64 Windows may fail to install via `pip`
+because no pre-built wheel is available for your platform:
+
+```
+error: Microsoft Visual C++ 14.0 or greater is required ...
+  — or —
+error: can't find Rust compiler
+```
+
+**Quickest fix — use `uv` for the whole install:**
+
+```bash
+pip install uv
+uv pip install -r requirements.txt
+```
+
+`uv` resolves a compatible pre-built wheel automatically.
+
+**Alternative — force a binary-only install for `cryptography` first:**
+
+```bash
+pip install --only-binary :all: cryptography
+pip install -r requirements.txt
+```
+
+**Also relevant for `mcp dev`:** always pass `--with "mcp[cli]"` so the isolated `uv`
+environment includes `typer` (also part of `mcp[cli]`):
+
+```bash
+# correct
+mcp dev --with "mcp[cli]" mcp_server.py
+
+# incorrect — produces "Error: typer is required" and a JSON parse error in the inspector
+mcp dev mcp_server.py
+```
